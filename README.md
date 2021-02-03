@@ -4,7 +4,7 @@ Make MacOS catch some Zs (whereas 'sleep') when X battery level is reached
 
 # what?
 
-Runs each 60sec, and if running on battery check its status and in case level reaches the defined  threshold (set at 15 - you can customize it thru _battery_threshold variable on top of catchsomezMac.sh script - shoots a dialog asking to sleep.
+Runs each 60sec, and if running on battery check its status and in case level reaches the defined  threshold (set at 35 - you can customize it thru _battery_threshold variable on top of catchsomezMac.sh script - shoots a dialog asking to sleep.
 
 # how to
 
@@ -24,4 +24,4 @@ why would you do that?
 <pre>launchctl stop com.user.catchsomezmac
 launchctl unload -w ~/Library/LaunchAgents/com.user.catchsomezmac.plist
 launchctl list | grep catchsomezmac # confirm it gone from launchagents list
-rm ~/Library/LaunchAgents/*catchsomezmac*</pre>
+rm ~/Library/LaunchAgents/*catchsomez*</pre>
