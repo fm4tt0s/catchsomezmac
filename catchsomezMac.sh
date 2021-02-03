@@ -29,7 +29,7 @@
 _battery_threshold=35
 
 _tstamp=$(date +%m%d%Y%H%M)
-# only go on if running on batter
+# only go on if running on battery
 if (pmset -g batt | grep -q "drawing.*from.*Battery"); then
     _current_battery=$(pmset -g batt | grep -o "[0-9]*%" | grep -o "[0-9][0-9]*")
     echo "[INFO]|${_tstamp}|current battery level at ${_current_battery}%" 2>&1
