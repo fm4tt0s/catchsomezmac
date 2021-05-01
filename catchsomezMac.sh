@@ -6,7 +6,7 @@
 #
 # purpose   : make macos sleep when battery reaches some level
 # remarks   : runs each 60sec, check battery status and if level reaches the defined (set at 15 - you can customize)
-#           then warns the user for low level battery; if no action taken in 60sec, system is sent to bed.
+#           then warns the user for low level battery; if no action taken in 180sec, system is sent to bed.
 # require   : na
 #
 # how to    : 
@@ -36,7 +36,7 @@ if (pmset -g batt | grep -q "drawing.*from.*Battery"); then
     if [[ "${_current_battery}" -lt "${_battery_threshold}" ]]; then
         # gotcha the battery is lower than defined thold
         echo "[WARN]|${_tstamp}|battery below danger threshold of ${_battery_threshold}%" 2>&1
-        _dialog_resp=$(osascript -e 'display dialog "Your battery is dying!\nYour computer will sleep in 60s.\n\nPlug in the AC adapter!" with title "Catch some Z Mac!" with icon stop buttons {"No"} giving up after 60
+        _dialog_resp=$(osascript -e 'display dialog "Your battery is dying!\nYour computer will sleep in 3min.\n\nPlug in the AC adapter!" with title "Catch some Z Mac!" with icon stop buttons {"No"} giving up after 180
         if button returned of result = "No" then
             return 1
         end if') 2> /dev/null
